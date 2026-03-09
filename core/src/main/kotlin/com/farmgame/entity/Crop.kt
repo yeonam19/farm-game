@@ -53,7 +53,7 @@ class Crop(val type: CropType) {
     fun onNewDay(wasWatered: Boolean) {
         if (!wasWatered && !isDead) {
             daysWithoutWater++
-            if (daysWithoutWater >= 3) {
+            if (daysWithoutWater >= 2) {
                 isDead = true
             }
         } else {

@@ -417,7 +417,7 @@ class GameHUD(private val world: GameWorld) {
             val (name, cost, desc) = when (nextLevel) {
                 1 -> Triple("기본 통발 설치", 2000, "15초마다 자동 낚시")
                 2 -> Triple("고급 통발 설치", 8000, "8초마다 자동 낚시")
-                3 -> Triple("자동 낚시선", 25000, "4초마다 자동 낚시")
+                3 -> Triple("자동 낚시선", 20000, "4초마다 자동 낚시")
                 else -> Triple("", 0, "")
             }
             upgrades.add(Triple("$name - ${cost}원 ($desc)", cost) {
@@ -431,7 +431,7 @@ class GameHUD(private val world: GameWorld) {
         if (world.farmerLevel < 3) {
             val nextLevel = world.farmerLevel + 1
             val (name, cost, desc) = when (nextLevel) {
-                1 -> Triple("농부 철수 고용", 5000, "초급 농부 추가")
+                1 -> Triple("농부 철수 고용", 4000, "초급 농부 추가")
                 2 -> Triple("농부 영희 추가고용", 15000, "중급 농부 추가 (철수+영희)")
                 3 -> Triple("달인 농부 추가고용", 40000, "고급 농부 추가 (3명 동시)")
                 else -> Triple("", 0, "")
@@ -448,7 +448,7 @@ class GameHUD(private val world: GameWorld) {
         if (world.herderLevel < 3) {
             val nextLevel = world.herderLevel + 1
             val (name, cost, desc) = when (nextLevel) {
-                1 -> Triple("목동 민호 고용", 4000, "초급 목동 추가")
+                1 -> Triple("목동 민호 고용", 3500, "초급 목동 추가")
                 2 -> Triple("목동 수진 추가고용", 12000, "중급 목동 추가 (민호+수진)")
                 3 -> Triple("목축달인 추가고용", 30000, "고급 목동 추가 (3명 동시)")
                 else -> Triple("", 0, "")

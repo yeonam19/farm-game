@@ -14,24 +14,25 @@ enum class CropType(
     val waterNeeded: Boolean,
     val seedColor: Color,
     val grownColor: Color,
-    val season: Season
+    val season: Season,
+    val harvestExp: Int = 10    // 수확 시 경험치 (성장시간 비례)
 ) {
     STRAWBERRY("Strawberry", "딸기", 10, 60, 4, 30f, true,
-        Color(0.2f, 0.8f, 0.2f, 1f), Color(1f, 0.2f, 0.2f, 1f), Season.SPRING),
+        Color(0.2f, 0.8f, 0.2f, 1f), Color(1f, 0.2f, 0.2f, 1f), Season.SPRING, 10),
     TOMATO("Tomato", "토마토", 12, 70, 5, 35f, true,
-        Color(0.3f, 0.7f, 0.2f, 1f), Color(0.9f, 0.1f, 0.1f, 1f), Season.SUMMER),
+        Color(0.3f, 0.7f, 0.2f, 1f), Color(0.9f, 0.1f, 0.1f, 1f), Season.SUMMER, 12),
     CORN("Corn", "옥수수", 15, 90, 6, 40f, true,
-        Color(0.2f, 0.6f, 0.1f, 1f), Color(1f, 0.9f, 0.2f, 1f), Season.SUMMER),
+        Color(0.2f, 0.6f, 0.1f, 1f), Color(1f, 0.9f, 0.2f, 1f), Season.SUMMER, 15),
     POTATO("Potato", "감자", 8, 50, 4, 25f, true,
-        Color(0.3f, 0.5f, 0.2f, 1f), Color(0.7f, 0.5f, 0.3f, 1f), Season.SPRING),
+        Color(0.3f, 0.5f, 0.2f, 1f), Color(0.7f, 0.5f, 0.3f, 1f), Season.SPRING, 10),
     CARROT("Carrot", "당근", 8, 45, 3, 20f, true,
-        Color(0.2f, 0.7f, 0.3f, 1f), Color(1f, 0.5f, 0.1f, 1f), Season.AUTUMN),
+        Color(0.2f, 0.7f, 0.3f, 1f), Color(1f, 0.5f, 0.1f, 1f), Season.AUTUMN, 9),
     CABBAGE("Cabbage", "배추", 10, 55, 5, 35f, true,
-        Color(0.3f, 0.8f, 0.3f, 1f), Color(0.4f, 0.9f, 0.3f, 1f), Season.AUTUMN),
+        Color(0.3f, 0.8f, 0.3f, 1f), Color(0.4f, 0.9f, 0.3f, 1f), Season.AUTUMN, 12),
     RADISH("Radish", "무", 5, 35, 3, 18f, true,
-        Color(0.2f, 0.6f, 0.2f, 1f), Color(0.95f, 0.95f, 0.9f, 1f), Season.WINTER),
+        Color(0.2f, 0.6f, 0.2f, 1f), Color(0.95f, 0.95f, 0.9f, 1f), Season.WINTER, 9),
     SPINACH("Spinach", "시금치", 5, 30, 2, 15f, true,
-        Color(0.1f, 0.5f, 0.1f, 1f), Color(0.2f, 0.7f, 0.2f, 1f), Season.WINTER);
+        Color(0.1f, 0.5f, 0.1f, 1f), Color(0.2f, 0.7f, 0.2f, 1f), Season.WINTER, 8);
 
     fun canGrowIn(season: Season): Boolean = this.season == season || season == this.season
 }
@@ -148,7 +149,7 @@ data class UpgradeInfo(
 
 object Upgrades {
     val toolUpgrades = mapOf(
-        1 to UpgradeInfo("Bronze Tools", "청동 도구", "작업 속도 20% 증가", 500, 1),
+        1 to UpgradeInfo("Bronze Tools", "청동 도구", "작업 속도 20% 증가", 800, 1),
         2 to UpgradeInfo("Iron Tools", "철 도구", "작업 속도 40% 증가", 1500, 2),
         3 to UpgradeInfo("Gold Tools", "금 도구", "작업 속도 60% 증가", 5000, 3)
     )
@@ -160,7 +161,7 @@ object Upgrades {
     )
 
     val wateringCanUpgrades = mapOf(
-        1 to UpgradeInfo("Sprinkler Lv1", "스프링클러 1단계", "매일 아침 농작물 자동 물주기 + 수동 3x3", 2000, 1),
+        1 to UpgradeInfo("Sprinkler Lv1", "스프링클러 1단계", "격일 아침 농작물 자동 물주기 + 수동 3x3", 1500, 1),
         2 to UpgradeInfo("Sprinkler Lv2", "스프링클러 2단계", "매일 아침 농작물 자동 물주기 + 수동 5x5", 6000, 2)
     )
 }

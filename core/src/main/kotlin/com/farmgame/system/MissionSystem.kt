@@ -113,7 +113,7 @@ object MissionSystem {
             listOf(MissionRewardItem("SPINACH_SEED", 10), MissionRewardItem("CARROT_SEED", 10)))
     )
 
-    fun getExpForLevel(level: Int): Int = 100 + level * 80
+    fun getExpForLevel(level: Int): Int = 100 + level * 60
 
     fun getLevelTitle(level: Int): String = when {
         level < 3 -> "초보 농부"
